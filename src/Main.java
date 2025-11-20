@@ -23,10 +23,28 @@ public class Main {
     }
 
     public static int getPartOneNumber(String line) {
-        // do part 1
-        // find the first digit and last digit of the String
-        // return the number put together
-        return 0;
+        String res = "";
+        int i=0;
+        while (i<line.length()){
+            if (line.substring(i, i+1).equals("0")|| line.substring(i, i+1).equals("1") || line.substring(i, i+1).equals("2") || line.substring(i, i+1).equals("3") || line.substring(i, i+1).equals("4") ||
+                    line.substring(i, i+1).equals("5") || line.substring(i, i+1).equals("6") || line.substring(i, i+1).equals("7") || line.substring(i, i+1).equals("8") || line.substring(i, i+1).equals("9")) {
+                i=line.length()-1;
+                res+=line.substring(i, i+1);
+                break;
+            }
+            i++;
+        }
+        while (i>=0){
+            if (line.substring(i, i+1).equals("0") || line.substring(i, i+1).equals("1") || line.substring(i, i+1).equals("2") || line.substring(i, i+1).equals("3") || line.substring(i, i+1).equals("4") ||
+                    line.substring(i, i+1).equals("5") || line.substring(i, i+1).equals("6") || line.substring(i, i+1).equals("7") || line.substring(i, i+1).equals("8") || line.substring(i, i+1).equals("9")) {
+                i=0;
+                res+=line.substring(i, i+1);
+                break;
+            }
+            i--;
+        }
+        System.out.println(res);
+        return Integer.parseInt(res);
     }
 
     public static int getPartTwoNumber(String line) {
