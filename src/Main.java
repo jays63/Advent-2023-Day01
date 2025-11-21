@@ -26,18 +26,78 @@ public class Main {
         String res = "";
         int i=0;
         while (i<line.length()){
-            if (line.substring(i, i+1).equals("0")|| line.substring(i, i+1).equals("1") || line.substring(i, i+1).equals("2") || line.substring(i, i+1).equals("3") || line.substring(i, i+1).equals("4") ||
-                    line.substring(i, i+1).equals("5") || line.substring(i, i+1).equals("6") || line.substring(i, i+1).equals("7") || line.substring(i, i+1).equals("8") || line.substring(i, i+1).equals("9")) {
-                i=line.length()-1;
+            if (Character.isDigit(line.charAt(i))) {
                 res+=line.substring(i, i+1);
+                i=line.length()-1;
                 break;
             }
             i++;
         }
         while (i>=0){
-            if (line.substring(i, i+1).equals("0") || line.substring(i, i+1).equals("1") || line.substring(i, i+1).equals("2") || line.substring(i, i+1).equals("3") || line.substring(i, i+1).equals("4") ||
-                    line.substring(i, i+1).equals("5") || line.substring(i, i+1).equals("6") || line.substring(i, i+1).equals("7") || line.substring(i, i+1).equals("8") || line.substring(i, i+1).equals("9")) {
-                i=0;
+            if (Character.isDigit(line.charAt(i))){
+                res+=line.substring(i, i+1);
+                break;
+            }
+            i--;
+        }
+        return Integer.parseInt(res);
+    }
+
+    public static int getPartTwoNumber(String line) {
+        String res = "";
+        int i=0;
+        while (i<line.length()){
+            System.out.println(line);
+            if (Character.isDigit(line.charAt(i))) {
+                res+=line.substring(i, i+1);
+                i=line.length()-1;
+                break;
+            }
+            else if (line.length()-i > 5 &&
+                    (line.substring(i, i+5).contains("one") ||
+                    line.substring(i, i+5).contains("two") ||
+                    line.substring(i, i+5).contains("three") ||
+                    line.substring(i, i+5).contains("four") ||
+                    line.substring(i, i+5).contains("five") ||
+                    line.substring(i, i+5).contains("six") ||
+                    line.substring(i, i+5).contains("seven") ||
+                    line.substring(i, i+5).contains("eight") ||
+                    line.substring(i, i+5).contains("nine"))){
+                String x=line.substring(i, i+5);
+                switch (x){
+                    case "*one*":
+                        res+=1;
+                        break;
+                    case "*two*":
+                        res+=2;
+                        break;
+                    case "three":
+                        res+=3;
+                        break;
+                    case "*four*":
+                        res+=4;
+                        break;
+                    case "*five*":
+                        res+=5;
+                        break;
+                    case "*six*":
+                        res+=6;
+                        break;
+                    case "seven":
+                        res+=7;
+                        break;
+                    case "eight":
+                        res+=8;
+                        break;
+                    case "*nine*":
+                        res+=9;
+                        break;
+                }
+            }
+            i++;
+        }
+        while (i>=0){
+            if (Character.isDigit(line.charAt(i))){
                 res+=line.substring(i, i+1);
                 break;
             }
@@ -45,11 +105,6 @@ public class Main {
         }
         System.out.println(res);
         return Integer.parseInt(res);
-    }
-
-    public static int getPartTwoNumber(String line) {
-        // do part 2
-        return 0;
     }
 
     public static ArrayList<String> getFileData(String fileName) {
