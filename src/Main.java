@@ -47,63 +47,121 @@ public class Main {
         String res = "";
         int i=0;
         while (i<line.length()){
-            System.out.println(line);
             if (Character.isDigit(line.charAt(i))) {
                 res+=line.substring(i, i+1);
-                i=line.length()-1;
+                System.out.println(line); //DEBUGGING
                 break;
             }
-            else if (line.length()-i > 5 &&
-                    (line.substring(i, i+5).contains("one") ||
-                    line.substring(i, i+5).contains("two") ||
-                    line.substring(i, i+5).contains("three") ||
-                    line.substring(i, i+5).contains("four") ||
-                    line.substring(i, i+5).contains("five") ||
-                    line.substring(i, i+5).contains("six") ||
-                    line.substring(i, i+5).contains("seven") ||
-                    line.substring(i, i+5).contains("eight") ||
-                    line.substring(i, i+5).contains("nine"))){
+            else if (line.length()-i >= 3 &&
+                    (line.substring(i, i+3).contains("one") ||
+                            line.substring(i, i+3).contains("two") ||
+                            line.substring(i, i+5).contains("three") ||
+                            line.substring(i, i+5).contains("four") ||
+                            line.substring(i, i+5).contains("five") ||
+                            line.substring(i, i+3).contains("six") ||
+                            line.substring(i, i+5).contains("seven") ||
+                            line.substring(i, i+5).contains("eight") ||
+                            line.substring(i, i+5).contains("nine"))){
+                System.out.println(line);
                 String x=line.substring(i, i+5);
-                switch (x){
-                    case "*one*":
-                        res+=1;
-                        break;
-                    case "*two*":
-                        res+=2;
-                        break;
-                    case "three":
-                        res+=3;
-                        break;
-                    case "*four*":
-                        res+=4;
-                        break;
-                    case "*five*":
-                        res+=5;
-                        break;
-                    case "*six*":
-                        res+=6;
-                        break;
-                    case "seven":
-                        res+=7;
-                        break;
-                    case "eight":
-                        res+=8;
-                        break;
-                    case "*nine*":
-                        res+=9;
-                        break;
+                if (x.contains("one")) {
+                    res+=1;
+                    break;
                 }
+                else if (x.contains("two")) {
+                    res+=2;
+                    break;
+                }
+                else if (x.contains("three")) {
+                    res+=3;
+                    break;
+                }
+                else if (x.contains("four")) {
+                    res+=4;
+                    break;
+                }
+                else if (x.contains("five")) {
+                    res+=5;
+                    break;
+                }
+                else if (x.contains("six")) {
+                    res+=6;
+                    break;
+                }
+                else if (x.contains("seven")) {
+                    res+=7;
+                    break;
+                }
+                else if (x.contains("eight")) {
+                    res+=8;
+                    break;
+                }
+                else if (x.contains("nine")) {
+                    res+=9;
+                    break;
+                }
+            } else if (line.length()-i>=4) {
+                
             }
             i++;
         }
+        i=line.length()-1;
         while (i>=0){
             if (Character.isDigit(line.charAt(i))){
                 res+=line.substring(i, i+1);
                 break;
             }
+            else if (line.length()-i >= 5 &&
+                    (line.substring(i, i+5).contains("one") ||
+                            line.substring(i, i+5).contains("two") ||
+                            line.substring(i, i+5).contains("three") ||
+                            line.substring(i, i+5).contains("four") ||
+                            line.substring(i, i+5).contains("five") ||
+                            line.substring(i, i+5).contains("six") ||
+                            line.substring(i, i+5).contains("seven") ||
+                            line.substring(i, i+5).contains("eight") ||
+                            line.substring(i, i+5).contains("nine"))){
+                String x=line.substring(i, i+5);
+                if (x.contains("one")) {
+                    res+=1;
+                    break;
+                }
+                else if (x.contains("two")) {
+                    res+=2;
+                    break;
+                }
+                else if (x.contains("three")) {
+                    res+=3;
+                    break;
+                }
+                else if (x.contains("four")) {
+                    res+=4;
+                    break;
+                }
+                else if (x.contains("five")) {
+                    res+=5;
+                    break;
+                }
+                else if (x.contains("six")) {
+                    res+=6;
+                    break;
+                }
+                else if (x.contains("seven")) {
+                    res+=7;
+                    break;
+                }
+                else if (x.contains("eight")) {
+                    res+=8;
+                    break;
+                }
+                else if (x.contains("nine")) {
+                    res+=9;
+                    break;
+                }
+            }
             i--;
         }
-        System.out.println(res);
+        System.out.println(res); //DEBUGGING
         return Integer.parseInt(res);
     }
 
