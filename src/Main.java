@@ -53,55 +53,64 @@ public class Main {
                 break;
             }
             else if (line.length()-i >= 3 &&
-                    (line.substring(i, i+3).contains("one") ||
-                            line.substring(i, i+3).contains("two") ||
-                            line.substring(i, i+5).contains("three") ||
-                            line.substring(i, i+5).contains("four") ||
-                            line.substring(i, i+5).contains("five") ||
-                            line.substring(i, i+3).contains("six") ||
-                            line.substring(i, i+5).contains("seven") ||
-                            line.substring(i, i+5).contains("eight") ||
-                            line.substring(i, i+5).contains("nine"))){
-                System.out.println(line);
-                String x=line.substring(i, i+5);
+                    (line.substring(i, i+3).contains("one")
+                    || line.substring(i, i+3).contains("two")
+                    || line.substring(i, i+3).contains("six"))){
+                String x=line.substring(i, i+3);
                 if (x.contains("one")) {
                     res+=1;
+                    System.out.println(line);
                     break;
                 }
                 else if (x.contains("two")) {
                     res+=2;
-                    break;
-                }
-                else if (x.contains("three")) {
-                    res+=3;
-                    break;
-                }
-                else if (x.contains("four")) {
-                    res+=4;
-                    break;
-                }
-                else if (x.contains("five")) {
-                    res+=5;
+                    System.out.println(line);
                     break;
                 }
                 else if (x.contains("six")) {
                     res+=6;
+                    System.out.println(line);
                     break;
                 }
-                else if (x.contains("seven")) {
+            } else if (line.length()-i >=4 &&
+                    (line.substring(i, i+4).contains("four") ||
+                            line.substring(i, i+4).contains("five")
+                            || line.substring(i, i+4).contains("nine")
+                    )) {
+                String x = line.substring(i, i+4);
+                if (x.contains("four")) {
+                    res+=4;
+                    System.out.println(line);
+                    break;
+                } else if (x.contains("five")) {
+                    res+=5;
+                    System.out.println(line);
+                    break;
+                } else if (x.contains("nine")) {
+                    res+=9;
+                    System.out.println(line);
+                    break;
+                }
+            } else if (line.length()-i >=5 &&
+                    (line.substring(i, i+5).contains("three") ||
+                            line.substring(i, i+5).contains("seven")
+                            || line.substring(i, i+5).contains("eight")
+                    )){
+                String x = line.substring(i, i+5);
+                if (x.contains("three")) {
+                    res+=3;
+                    System.out.println(line);
+                    break;
+                } else if (x.contains("seven")) {
                     res+=7;
+                    System.out.println(line);
                     break;
                 }
                 else if (x.contains("eight")) {
                     res+=8;
+                    System.out.println(line);
                     break;
                 }
-                else if (x.contains("nine")) {
-                    res+=9;
-                    break;
-                }
-            } else if (line.length()-i>=4) {
-                
             }
             i++;
         }
@@ -111,17 +120,11 @@ public class Main {
                 res+=line.substring(i, i+1);
                 break;
             }
-            else if (line.length()-i >= 5 &&
-                    (line.substring(i, i+5).contains("one") ||
-                            line.substring(i, i+5).contains("two") ||
-                            line.substring(i, i+5).contains("three") ||
-                            line.substring(i, i+5).contains("four") ||
-                            line.substring(i, i+5).contains("five") ||
-                            line.substring(i, i+5).contains("six") ||
-                            line.substring(i, i+5).contains("seven") ||
-                            line.substring(i, i+5).contains("eight") ||
-                            line.substring(i, i+5).contains("nine"))){
-                String x=line.substring(i, i+5);
+            else if (line.length()-i >= 3 &&
+                    (line.substring(i, i+3).contains("one")
+                            || line.substring(i, i+3).contains("two")
+                            || line.substring(i, i+3).contains("six"))){
+                String x=line.substring(i, i+3);
                 if (x.contains("one")) {
                     res+=1;
                     break;
@@ -130,32 +133,41 @@ public class Main {
                     res+=2;
                     break;
                 }
-                else if (x.contains("three")) {
-                    res+=3;
-                    break;
-                }
-                else if (x.contains("four")) {
-                    res+=4;
-                    break;
-                }
-                else if (x.contains("five")) {
-                    res+=5;
-                    break;
-                }
                 else if (x.contains("six")) {
                     res+=6;
                     break;
                 }
-                else if (x.contains("seven")) {
+            } else if (line.length()-i >=4 &&
+                    (line.substring(i, i+4).contains("four") ||
+                            line.substring(i, i+4).contains("five")
+                            || line.substring(i, i+4).contains("nine")
+                    )) {
+                String x = line.substring(i, i+4);
+                if (x.contains("four")) {
+                    res+=4;
+                    break;
+                } else if (x.contains("five")) {
+                    res+=5;
+                    break;
+                } else if (x.contains("nine")) {
+                    res+=9;
+                    break;
+                }
+            } else if (line.length()-i >=5 &&
+                    (line.substring(i, i+5).contains("three") ||
+                            line.substring(i, i+5).contains("seven")
+                            || line.substring(i, i+5).contains("eight")
+                    )){
+                String x = line.substring(i, i+5);
+                if (x.contains("three")) {
+                    res+=3;
+                    break;
+                } else if (x.contains("seven")) {
                     res+=7;
                     break;
                 }
                 else if (x.contains("eight")) {
                     res+=8;
-                    break;
-                }
-                else if (x.contains("nine")) {
-                    res+=9;
                     break;
                 }
             }
