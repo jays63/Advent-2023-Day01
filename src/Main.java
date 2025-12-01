@@ -13,39 +13,36 @@ public class Main {
 
         int partOneAnswer = 0;
         int partTwoAnswer = 0;
-        for (int i = 0; i < lines.size(); i++) {
-            partOneAnswer += getPartOneNumber(lines.get(i));
-            partTwoAnswer += getPartTwoNumber(lines.get(i));
-        }
+        partOneAnswer;
 
         System.out.println("Part one answer: " + partOneAnswer);
         System.out.println("Part two answer: " + partTwoAnswer);
     }
 
-    public static int getPartOneNumber(String line) {
-        String res = "";
-        int i=0;
-        while (i<line.length()){
-            if (Character.isDigit(line.charAt(i))) {
-                res+=line.substring(i, i+1);
-                i=line.length()-1;
-                break;
+    public static int getPartOneNumber(ArrayList<String> lines) {
+        int pos=50;
+        int count=0;
+            if (line.charAt(0)=='L'){
+                pos-=Integer.parseInt(line.substring(1));
+                while (pos<0){
+                    pos+=100;
+                }
             }
-            i++;
-        }
-        while (i>=0){
-            if (Character.isDigit(line.charAt(i))){
-                res+=line.substring(i, i+1);
-                break;
+            if (line.charAt(0)=='R'){
+                pos+=Integer.parseInt(line.substring(1));
+                while (pos>100){
+                    pos-=100;
+                }
             }
-            i--;
-        }
-        return Integer.parseInt(res);
+            if (pos==0) {
+                count++;
+                System.out.println(pos);
+            }
+        return count;
     }
 
     public static int getPartTwoNumber(String line) {
-        int total=0;
-        return total;
+        return 0;
     }
 
     public static ArrayList<String> getFileData(String fileName) {
