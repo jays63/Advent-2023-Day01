@@ -13,8 +13,8 @@ public class Main {
 
         int partOneAnswer = 0;
         int partTwoAnswer = 0;
-        partOneAnswer;
-
+        partOneAnswer=getPartOneNumber(lines);
+        partTwoAnswer=getPartTwoNumber(lines);
         System.out.println("Part one answer: " + partOneAnswer);
         System.out.println("Part two answer: " + partTwoAnswer);
     }
@@ -22,27 +22,50 @@ public class Main {
     public static int getPartOneNumber(ArrayList<String> lines) {
         int pos=50;
         int count=0;
-            if (line.charAt(0)=='L'){
-                pos-=Integer.parseInt(line.substring(1));
-                while (pos<0){
-                    pos+=100;
+        for (int i = 0; i < lines.size(); i++) {
+            if (lines.get(i).charAt(0) == 'L') {
+                pos -= Integer.parseInt(lines.get(i).substring(1));
+                while (pos < 0) {
+                    pos += 100;
                 }
             }
-            if (line.charAt(0)=='R'){
-                pos+=Integer.parseInt(line.substring(1));
-                while (pos>100){
-                    pos-=100;
+            else if (lines.get(i).charAt(0) == 'R') {
+                pos += Integer.parseInt(lines.get(i).substring(1));
+                while (pos >= 100) {
+                    pos -= 100;
                 }
             }
-            if (pos==0) {
+            if (pos == 0) {
                 count++;
-                System.out.println(pos);
             }
+        }
         return count;
     }
 
-    public static int getPartTwoNumber(String line) {
-        return 0;
+    public static int getPartTwoNumber(ArrayList<String> lines) {
+        int pos=50;
+        int count=0;
+        for (int i = 0; i < lines.size(); i++) {
+            if (lines.get(i).charAt(0) == 'L') {
+                pos -= Integer.parseInt(lines.get(i).substring(1));
+                while (pos < 0) {
+                    pos += 100;
+                    count++;
+                }
+            }
+            else if (lines.get(i).charAt(0) == 'R') {
+                pos += Integer.parseInt(lines.get(i).substring(1));
+                while (pos >= 100) {
+                    pos -= 100;
+                    count++;
+                }
+            }
+            if (pos == 0) {
+                count++;
+            }
+            System.out.println("Position: "+pos+" Count: "+count+" Line: "+(1+i));
+        }
+        return count;
     }
 
     public static ArrayList<String> getFileData(String fileName) {
