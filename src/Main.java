@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 //        ArrayList<String> lines = getFileData("src/data");
         String[] ranges = getFileData("src/data").get(0).split(",");
-        int partOneAnswer;
+        long partOneAnswer;
         int partTwoAnswer;
         partOneAnswer=getPartOneNumber(ranges);
         partTwoAnswer=getPartTwoNumber(ranges);
@@ -17,14 +17,15 @@ public class Main {
         System.out.println("Part two answer: " + partTwoAnswer);
     }
 
-    public static int getPartOneNumber(String[] ranges) {
-        int invSum=0;
+    public static long getPartOneNumber(String[] ranges) {
+        long invSum=0;
         System.out.println(Arrays.toString(ranges)); //DEBUG PRINT
         for (int i = 0; i < ranges.length; i++) {
             String[] things=ranges[i].split("-");
-            int minNum=Integer.parseInt(things[0]);
-            int maxNum=Integer.parseInt(things[1]);
-            for (int j = minNum; j <= maxNum; j++) {
+            System.out.println(Arrays.toString(things));
+            long minNum=Long.parseLong(things[0]);
+            long maxNum=Long.parseLong(things[1]);
+            for (long j = minNum; j <= maxNum; j++) {
                 String thing=""+j;
                 if (thing.length()%2==0){
                     String first=thing.substring(0, thing.length()/2);
