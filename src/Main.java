@@ -47,21 +47,27 @@ public class Main {
         int count=0;
         for (int i = 0; i < lines.size(); i++) {
             if (lines.get(i).charAt(0) == 'L') {
-                pos -= Integer.parseInt(lines.get(i).substring(1));
-                while (pos < 0) {
-                    pos += 100;
-                    count++;
+                for (int x = Integer.parseInt(lines.get(i).substring(1)); x > 0 ; x--) {
+                    pos--;
+                    if (pos%100==0) {
+                        pos=0;
+                        count++;
+                    }
                 }
+                if (pos < 0)
+                    pos+=100;
             }
             else if (lines.get(i).charAt(0) == 'R') {
-                pos += Integer.parseInt(lines.get(i).substring(1));
-                while (pos >= 100) {
-                    pos -= 100;
-                    count++;
+                for (int x = Integer.parseInt(lines.get(i).substring(1)); x > 0; x--){
+                    pos++;
+                    if (pos%100==0) {
+                        pos=0;
+                        count++;
+                    }
+                    if (pos > 100) {
+                        pos-=100;
+                    }
                 }
-            }
-            if (pos == 0) {
-                count++;
             }
             System.out.println("Position: "+pos+" Count: "+count+" Line: "+(1+i));
         }
