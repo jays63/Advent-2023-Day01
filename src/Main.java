@@ -56,32 +56,21 @@ public class Main {
 
     public static long getPartTwoNumber(ArrayList<String> input) {
         long out=0L;
-        for (int i = 0; i < input.size(); i++) {
-            int digitsRemaining=12;
-            Long increment=0L;
-            int lastDigitCount=0;
-            while (digitsRemaining>0){
-                String newRes=input.get(i);
-                for (int x = 9; x>0; x--) {
-                    for (int j = 0; j < newRes.length(); j++) {
-                        if (Integer.parseInt(newRes.substring(j, j+1))==x){
-                            if (j!=newRes.length()-1){
-                                newRes=input.get(i).substring(j+1);
-                                x=0;
-                                j--;
-                            } else if (Integer.parseInt(newRes.substring(newRes.length()-1))==x){newRes=newRes.substring(0, newRes.length()-1);
-                                increment+= x*(long)Math.pow(10, lastDigitCount);
-                                lastDigitCount++;
-                                x=0;
-                                j--;
-                            }
-                        }
+        for (int i = 0; i < input.size(); i++) {//Loops through each input
+            long number=0L;
+            String res=input.get(i);
+            for (int j = 0; j < res.length()-11; j++) {//GOAL: Capture the first digit
+                for (int k = 9; k > 0; k--) {
+                    if (Integer.parseInt(res.substring(j, j+1))==k){
+                        number+= (long) ((k-1)*Math.pow(10, 11));
+                        res=res.substring(j);
                     }
-                    digitsRemaining--;
                 }
             }
-            System.out.println(increment);
-            out+=increment;
+
+            System.out.println(input.get(i));
+            System.out.println(number);
+            out+=number;
         }
         return out;
     }
