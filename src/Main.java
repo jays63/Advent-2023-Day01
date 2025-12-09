@@ -62,12 +62,11 @@ public class Main {
             for (int j = 0; j < res.length()-11; j++) {//GOAL: Capture the first digit
                 for (int k = 9; k > 0; k--) {
                     if (Integer.parseInt(res.substring(j, j+1))==k){
-                        number+= (long) ((k-1)*Math.pow(10, 11));
+                        number+= ((long)k*(long)Math.pow(10, 11));
                         res=res.substring(j);
                     }
                 }
             }
-
             System.out.println(input.get(i));
             System.out.println(number);
             out+=number;
