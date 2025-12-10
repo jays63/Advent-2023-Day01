@@ -59,11 +59,123 @@ public class Main {
         for (int i = 0; i < input.size(); i++) {//Loops through each input
             long number=0L;
             String res=input.get(i);
-            for (int j = 0; j < res.length()-11; j++) {//GOAL: Capture the first digit
-                for (int k = 9; k > 0; k--) {
-                    if (Integer.parseInt(res.substring(j, j+1))==k){
-                        number+= ((long)k*(long)Math.pow(10, 11));
-                        res=res.substring(j);
+            int x=11;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the first digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the second digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the third digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the fourth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the fifth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the sixth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the seventh digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the eighth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the ninth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the tenth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the eleventh digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
+                    }
+                }
+            }
+            x--;
+            for (int j = 9; j > 0; j--) {//GOAL: Capture the twelfth digit
+                for (int k = 0; k <res.length()-x; k++) {
+                    if (Integer.parseInt(res.substring(k, k+1))==j){
+                        number+= ((long)j*(long)Math.pow(10, x));
+                        res=res.substring(k+1);
+                        j=0;
                     }
                 }
             }
