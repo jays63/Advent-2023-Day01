@@ -66,7 +66,7 @@ public class Main {
 
     public static int getPartTwoNumber(String[][] in) {
         int out=0;
-        for (int z=0; z<(in.length-2)*(in[0].length-2); z++) {
+        for (int z=0; z<(in.length-2)*(in[0].length-2); z++) { //Problem line
             for (int i = 1; i < in.length; i++) {
                 for (int j = 1; j < in[i].length; j++) {
                     if (in[i][j].equals("@")) {
