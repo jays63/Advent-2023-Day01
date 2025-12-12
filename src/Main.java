@@ -7,102 +7,38 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList<String> data=getFileData("src/data");
-        String[][] DAY4=new String[data.size()+2][data.getFirst().length()+2];
-        for (int i = 1; i < data.size()+1; i++) {
-            for (int j = 1; j < DAY4[i].length-1; j++) {
-                DAY4[i][j]= data.get(i-1).substring(j-1, j);
-            }
+        int idx=1;
+        while (data.get(idx).contains("-")){
+            idx++;
         }
-        for (int i = 0; i < DAY4.length; i++) {
-            for (int j = 0; j < DAY4[i].length; j++) {
-                if (DAY4[i][j]==null)
-                    DAY4[i][j]=".";
-            }
-        }
-        int partOneAnswer;
-        int partTwoAnswer;
-        partOneAnswer=getPartOneNumber(DAY4);
-        partTwoAnswer=getPartTwoNumber(DAY4);
+        String[] ranges= (data.subList(0, idx)).toArray(new String[idx]);
+        String[] numbers= (data.subList(idx + 1, data.size())).toArray(new String[data.size()-idx]);
+        long partOneAnswer;
+        long partTwoAnswer;
+        partOneAnswer=getPartOneNumber(ranges, numbers);
+        partTwoAnswer=getPartTwoNumber(data);
         System.out.println("Part one answer: " + partOneAnswer);
         System.out.println("Part two answer: " + partTwoAnswer);
     }
 
-    public static int getPartOneNumber(String[][] in) {
-        int out=0;
-        for (int i = 1; i < in.length; i++) {
-            for (int j = 1; j < in[i].length; j++) {
-                if (in[i][j].equals("@")){
-                    int count=0;
-                    if (in[i+1][j].equals("@")){
-                        count++;
-                    }
-                    if (in[i-1][j].equals("@")){
-                        count++;
-                    }
-                    if (in[i][j-1].equals("@")){
-                        count++;
-                    }
-                    if (in[i][j+1].equals("@")){
-                        count++;
-                    }if (in[i+1][j+1].equals("@")){
-                        count++;
-                    }
-                    if (in[i+1][j-1].equals("@")){
-                        count++;
-                    }
-                    if (in[i-1][j-1].equals("@")){
-                        count++;
-                    }
-                    if (in[i-1][j+1].equals("@")){
-                        count++;
-                    }
-                    if (count<4)
-                        out++;
+    public static long getPartOneNumber(String[] ranges, String[] numbers) {
+        long out=0L;
+        for (int i=0; i<ranges.length; i++){
+            long lowerBound=Long.parseLong(ranges[i].split("-")[0]);
+            long upperBound=Long.parseLong(ranges[i].split("-")[1]);
+            for (int j = 0; j < numbers.length; j++) {
+                if (j>=lowerBound && j<=upperBound){
+                    out++;
+                    numbers[j]="-1000";
+                    j--;
                 }
             }
         }
         return out;
     }
 
-    public static int getPartTwoNumber(String[][] in) {
-        int out=0;
-        for (int z=0; z<(in.length-2)*(in[0].length-2); z++) { //Problem line
-            for (int i = 1; i < in.length; i++) {
-                for (int j = 1; j < in[i].length; j++) {
-                    if (in[i][j].equals("@")) {
-                        int count = 0;
-                        if (in[i + 1][j].equals("@")) {
-                            count++;
-                        }
-                        if (in[i - 1][j].equals("@")) {
-                            count++;
-                        }
-                        if (in[i][j - 1].equals("@")) {
-                            count++;
-                        }
-                        if (in[i][j + 1].equals("@")) {
-                            count++;
-                        }
-                        if (in[i + 1][j + 1].equals("@")) {
-                            count++;
-                        }
-                        if (in[i + 1][j - 1].equals("@")) {
-                            count++;
-                        }
-                        if (in[i - 1][j - 1].equals("@")) {
-                            count++;
-                        }
-                        if (in[i - 1][j + 1].equals("@")) {
-                            count++;
-                        }
-                        if (count < 4) {
-                            out++;
-                            in[i][j] = ".";
-                        }
-                    }
-                }
-            }
-        }
+    public static long getPartTwoNumber(ArrayList<String> data) {
+        long out=0;
         return out;
     }
 
