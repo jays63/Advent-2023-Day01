@@ -12,8 +12,9 @@ public class Main {
             idx++;
         }
         String[] ranges= (data.subList(0, idx)).toArray(new String[idx]);
-        String[] numbers= (data.subList(idx + 1, data.size())).toArray(new String[data.size()-idx]);
-        long partOneAnswer;
+        String[] numbers= (data.subList(idx + 1, data.size())).toArray(new String[data.size()-idx-1]);
+//        Everything works here
+        int partOneAnswer;
         long partTwoAnswer;
         partOneAnswer=getPartOneNumber(ranges, numbers);
         partTwoAnswer=getPartTwoNumber(data);
@@ -21,16 +22,18 @@ public class Main {
         System.out.println("Part two answer: " + partTwoAnswer);
     }
 
-    public static long getPartOneNumber(String[] ranges, String[] numbers) {
-        long out=0L;
+    public static int getPartOneNumber(String[] ranges, String[] numbers) {
+        int out=0;
         for (int i=0; i<ranges.length; i++){
+            System.out.println(ranges[i]);
             long lowerBound=Long.parseLong(ranges[i].split("-")[0]);
+            System.out.println(lowerBound);
             long upperBound=Long.parseLong(ranges[i].split("-")[1]);
+            System.out.println(upperBound);
             for (int j = 0; j < numbers.length; j++) {
                 if (j>=lowerBound && j<=upperBound){
                     out++;
                     numbers[j]="-1000";
-                    j--;
                 }
             }
         }
